@@ -3,7 +3,7 @@ import java.util.*;
  * Single Linked List implementation in Java.
  */
 class SingleLinkedList{
-    class Node{
+    private class Node{
         int data;
         Node next;
 
