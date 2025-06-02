@@ -10,10 +10,15 @@ class SingleLinkedList{
         Node(int data){
             this.data=data;
             this.next=null;
+            size++;
         }
     }
     private Node head;
     private Node tail;
+    private int size;
+    SingleLinkedList(){
+        size=0;
+    }
 
     public static void main(String[] args) {
         SingleLinkedList ll=new SingleLinkedList();
@@ -25,11 +30,12 @@ class SingleLinkedList{
         // addLast
         ll.addNodeLast(1);
         ll.printList();
+        System.out.println("Size : "+ll.getSize());
         
         
 
     }
-    public void printList(){
+    private void printList(){
         Node current=head;
         while(current!=null){
             System.out.println(current.data);
@@ -37,7 +43,7 @@ class SingleLinkedList{
         }
     }
 
-    public void addFirst(int data){
+    private void addFirst(int data){
         Node newNode=new Node(data);
         if(head==null) {
             head = newNode;
@@ -49,7 +55,7 @@ class SingleLinkedList{
         }
     }
 
-    public void addNodeLast(int data){
+    private void addNodeLast(int data){
         Node newNode=new Node(data);
         if(head==null){
             head=newNode;
@@ -60,7 +66,7 @@ class SingleLinkedList{
         }
     }
 
-    public void addAtindex(int position, int data){
+    private void addAtindex(int position, int data){
         Node newNode=new Node(data);
         int index=0;
         Node current=head;
@@ -74,14 +80,15 @@ class SingleLinkedList{
 
     }
 
-    public void deleteFirstNode(){
+    private void deleteFirstNode(){
         if(head==null){
             System.out.println("No nodes in the list");
         }
+        size--;
         head=head.next;
     }
 
-    public void deleteLastNode(){
+    private void deleteLastNode(){
         Node current=head;
         if(head==null){
             System.out.println("No nodes in the list");
@@ -92,7 +99,12 @@ class SingleLinkedList{
         while(current.next.next!=null){
             current=current.next;
         }
+        size--;
         current.next=null;
         tail=current;
+    }
+
+    private int getSize(){
+        return size;
     }
 }
