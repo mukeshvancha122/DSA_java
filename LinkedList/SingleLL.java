@@ -73,4 +73,26 @@ class SingleLinkedList{
 
 
     }
+
+    public void deleteFirstNode(){
+        if(head==null){
+            System.out.println("No nodes in the list");
+        }
+        head=head.next;
+    }
+
+    public void deleteLastNode(){
+        Node current=head;
+        if(head==null){
+            System.out.println("No nodes in the list");
+        }
+        if(head.next==null){
+            head=null;
+        }
+        while(current.next.next!=null){
+            current=current.next;
+        }
+        current.next=null;
+        tail=current;
+    }
 }
